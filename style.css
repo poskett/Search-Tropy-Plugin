@@ -1,3 +1,5 @@
+/* Forked from https://github.com/graytape/tropy-note-tools */
+/* Additional features added with assistance of Claude Code (Sonnet 5.5) */
 /* Inherit Tropy's theme while keeping match colors legible in light and dark UI. */
 .nt-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:5px; padding:5px 8px; flex:0 0 auto; min-height:0; color:inherit; background:inherit; border-bottom:1px solid #8886; font:12px system-ui,sans-serif; }
 .nt-toolbar button,.nt-toolbar input[type=search] { font:inherit; color:inherit; background:transparent; border:1px solid #8888; border-radius:4px; padding:3px 7px; }
@@ -5,14 +7,17 @@
 .nt-toolbar button:hover:not(:disabled) { background:#8883; }
 .nt-toolbar button:disabled { opacity:.45; cursor:default; }
 .nt-toolbar :focus-visible { outline:2px solid #488cde; outline-offset:1px; }
-.nt-panel { flex:1 1 100%; min-width:0; }
-.nt-toolbar[hidden],.nt-panel[hidden],.nt-toolbar button[hidden] { display:none; }
-.nt-search { display:flex; align-items:center; flex-wrap:wrap; gap:5px; }
+.nt-pane { flex:0 1 auto; min-height:0; max-height:35%; overflow:auto; padding:5px 8px; border-top:1px solid #8886; font:12px system-ui,sans-serif; }
+.nt-pane button { font:inherit; color:inherit; background:transparent; border:1px solid #8888; border-radius:4px; padding:3px 7px; cursor:pointer; }
+.nt-pane :focus-visible { outline:2px solid #488cde; outline-offset:1px; }
+.nt-toolbar[hidden],.nt-pane[hidden],.nt-pane button[hidden] { display:none; }
+.nt-search { display:flex; align-items:center; flex:1 1 100%; gap:5px; }
+.nt-icon { display:inline-flex; align-items:center; opacity:.7; }
 .nt-search input[type=search] { flex:1 1 140px; min-width:70px; }
 .nt-search output { min-width:44px; text-align:center; font-variant-numeric:tabular-nums; }
 .nt-toolbar label { display:inline-flex; align-items:center; gap:3px; margin:0; }
 .nt-status { padding:5px 1px; font-size:11px; opacity:.8; }
-.nt-results { max-height:160px; overflow:auto; overscroll-behavior:contain; }
+.nt-results { overscroll-behavior:contain; }
 .nt-results:empty { display:none; }
 .nt-results .nt-result { display:block; width:100%; min-width:0; text-align:start; border:0; border-radius:3px; padding:5px 7px; }
 .nt-results .nt-result[aria-current=true] { background:#488cde28; box-shadow:inset 3px 0 #488cde; }

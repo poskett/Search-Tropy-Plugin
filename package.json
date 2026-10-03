@@ -1,11 +1,30 @@
 {
-  "name": "tropy-note-tools",
-  "productName": "Note Tools",
-  "version": "1.4.0",
-  "description": "Find across every note of a Tropy item, with automatic photo and note navigation.",
+  "name": "search-tropy-notes",
+  "productName": "Search Notes (Tropy Note Tools)",
+  "version": "1.4.1",
+  "description": "Search notes at the item level. Forked from Tropy-Note-Tools by Graytape.",
+  "homepage": "https://github.com/poskett/Search-Tropy-Plugin",
   "main": "index.js",
+  "icon": "icon.svg",
   "license": "MIT",
   "hooks": {},
-  "options": [],
-  "source": "local"
+  "options": [
+    {
+      "field": "alwaysVisible",
+      "label": "Always show the search bar",
+      "type": "boolean",
+      "default": true,
+      "hint": "On: the search bar is always shown above your notes. Off: it appears only when you press Command+F (Ctrl+F)."
+    }
+  ],
+  "source": "local",
+  "author": "James Poskett [forked from Graytape]",
+  "keywords": [
+    "tropy",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poskett/Search-Tropy-Plugin.git"
+  }
 }

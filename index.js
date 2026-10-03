@@ -1,3 +1,5 @@
+// Forked from https://github.com/graytape/tropy-note-tools
+// Additional features added with assistance of Claude Code (Sonnet 5.5)
 'use strict'
 const TropyAdapter = require('./lib/tropy')
 const Search = require('./lib/search')
@@ -5,13 +7,13 @@ const INSTANCE = Symbol.for('tropy.note-tools.instance.v1')
 
 // Keep search state outside individual iframes so it survives note/photo changes.
 class NoteTools {
-  constructor(_options = {}, context = {}) {
+  constructor(options = {}, context = {}) {
     this.doc = typeof document === 'object' ? document : null
     if (!this.doc) return
     this.doc[INSTANCE]?.unload()
     this.doc[INSTANCE] = this
     this.adapter = new TropyAdapter(context)
-    this.search = new Search(this.doc, this.adapter, context.logger || console)
+    this.search = new Search(this.doc, this.adapter, context.logger || console, options)
   }
   unload() {
     this.search?.dispose()
